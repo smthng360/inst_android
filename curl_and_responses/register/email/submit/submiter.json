@@ -1,0 +1,31 @@
+{
+  "url": "https://b.i.instagram.com/graphql_www",
+  "status_code": 404,
+  "headers": {
+    "Vary": "Accept-Encoding",
+    "Content-Encoding": "gzip",
+    "Content-Type": "application/json; charset=utf-8",
+    "reporting-endpoints": "coop_report=\"https://www.facebook.com/browser_reporting/coop/?minimize=0\"",
+    "report-to": "{\"max_age\":2592000,\"endpoints\":[{\"url\":\"https:\\/\\/www.facebook.com\\/browser_reporting\\/coop\\/?minimize=0\"}],\"group\":\"coop_report\",\"include_subdomains\":true}",
+    "cross-origin-embedder-policy": "require-corp",
+    "cross-origin-opener-policy": "same-origin-allow-popups",
+    "origin-agent-cluster": "?1",
+    "Strict-Transport-Security": "max-age=31536000; preload; includeSubDomains",
+    "x-stack": "www",
+    "X-FB-Debug": "1B0MsmHC9d9wIXcS06fYNW9ThCN845OPZN4H/gmpf+PSHijI7IB78cEWTTwrxLRbJoRDpn11pk6MYDPvAtFGpA==",
+    "Date": "Mon, 09 Feb 2026 19:44:02 GMT",
+    "Proxy-Status": "http_request_error; e_fb_vipaddr=\"AcO5Du7kd5L0MsJ-rL9EyTUDepSvj3yOrG-yoeeOt8E5jpvhHI8WzD1nQhn-rIERCflSf-xZ1HRwjtoW_4kpT-cTj29UVgYaVRCy_vYU\"; e_clientaddr=\"AcMoV2-BcV_luOj2_zuk-C6R9p5vWmjYavAPyxRG6E8MQMJbAYvx-KE_a4vfWY2VT6GYb4gqGpGe8TdbrMWwV2fFdJjboAcj9zz4Z4Px5yZMvVEZDQ\"; e_upip=\"AcM42KkqWR2PitzeDnhA5m56bD6CDcXUwqimFOTO7BefLfEl8XmD1oTf_BdBp83B4Sx9_-HI4OWSXYpNzh0Crjkpm7LuEmumCkbhc9lAQp4\"; e_fb_zone=\"AcNFSUhYq6on_DnYAp_veLx_gqDDVyZtrUGSQ0MDsYX9ZJR233XJRsmEtQZuaVtr\"; e_fb_twtaskhandle=\"AcMBgfSh7oBNJ7aju0j3IGpuZ9yerhktmB98TQxlUjmXCrfR6L6caNDdhA6Lgu32bE4PFNVcCn2Icb71ATeRPSi74TsHfkHx187veSyEjg\"; e_proxy=\"AcMtOzOTvySrCwEI4MOWw8heIrFac7gc6ExTim0VycBycrrCl0rOzkrhVWOmrCCB2mTqfNMoTo9aycJf17ee\", http_request_error; e_fb_vipaddr=\"AcNbRU_B8pGEcyd42URGfbj7QkVFGwriKIBy2kKN7ux64GSJ9pkACK3t2dAhUk1TrAcsENA1Dg\"; e_clientaddr=\"AcMJe4RSfp_6C3okVIxoeZ_mtvkgvDhAUpWiuH1eni4eRm7KNzQkbb-tgjO8YrCD7D8dlFthYqnawEbOP1U\"; e_upip=\"AcPJxxPINr0ZuZKLbYn59v6TQh0n67MZIsJpiTsgUdxlnZoHMbQiAYLQSdPeeX_OlhxrBiMXS1qZtJFhFLyXPNdkXD9rdWCGPCrQ-awn\"; e_fb_zone=\"AcO6qsfztLZibYkcWOUv9ALvdWheYIue11-aWDJLWNfg31eJiXWVDwKtx9VFRw\"; e_fb_twtaskhandle=\"AcMNAZMHV0iNvolr_ChtkUratZ7vvPKvYpK_GtQb_k7g5o7vGgZ6UpoitkZBrJVmYy-Lm6SnU0sEybB1OSUrxAwDo4tqWBWTvZQ\"; e_proxy=\"AcOEyRix9H0345GgDNlQBv2C6RroVw7eAxurHkdHSzgoxS41ZJGOfzPagd2jR4qN0QrO-3BioQVzKM4\"",
+    "X-FB-Client-IP-Forwarded": "194.44.160.146",
+    "X-FB-Server-Cluster-Forwarded": "waw2c02",
+    "X-FB-Connection-Quality": "MODERATE; q=0.3, rtt=279, rtx=0, c=14, mss=1370, tbw=3351, tp=-1, tpl=-1, uplat=154, ullat=13",
+    "Alt-Svc": "h3=\":443\"; ma=86400",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive"
+  },
+  "json": {
+    "message": "We're sorry, but something went wrong. Please try again.",
+    "status_code": "404",
+    "status": "fail"
+  },
+  "text": null
+}

@@ -1,0 +1,464 @@
+{
+    "batches": [
+        {
+            "time": 1767733471760,
+            "app_id": "567067343352427",
+            "app_ver": "410.1.0.63.71",
+            "build_num": 846519343,
+            "consent_state": 0,
+            "device": "sdk_gphone64_arm64",
+            "os_ver": "12",
+            "device_id": "0ebfd433-4663-481e-b1a3-367db479c3aa",
+            "session_id": "UFS-12ba6cab-3977-4d4a-9943-4b290413537d-0",
+            "seq": 2,
+            "app_uid": "0",
+            "data": [
+                {
+                    "extra": {
+                        "waterfall_id": "ba00d441-0815-456e-90a2-a33ede78e222",
+                        "experiment": "ig4a_layered_design_activity_experiment",
+                        "test_group": "ld_no_language_selector",
+                        "guid": "0ebfd433-4663-481e-b1a3-367db479c3aa",
+                        "containermodule": "waterfall_log_in",
+                        "elapsed_time": 485.0,
+                        "start_time":   1767733471268.0,
+                        "current_time": 1767733471753.0,
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -2.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "true"
+                    },
+                    "log_type": "client_event",
+                    "bg": "true",
+                    "time": 1767733471.757,
+                    "name": "ig_local_exposure",
+                    "sampling_rate": 1,
+                    "tags": 8388609
+                },
+                {
+                    "extra": {
+                        "exp_name": "ig4a_layered_design_activity_experiment",
+                        "exp_group": "ld_no_language_selector",
+                        "app_device_id": "0ebfd433-4663-481e-b1a3-367db479c3aa",
+                        "containermodule": "waterfall_log_in",
+                        "elapsed_time": 485.0,
+                        "start_time": 1767733471268.0,
+                        "current_time": 1767733471753,
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -2.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "true"
+                    },
+                    "log_type": "client_event",
+                    "bg": "true",
+                    "time": 1767733471.757,
+                    "name": "initial_app_launch_experiment_exposure",
+                    "sampling_rate": 1,
+                    "tags": 8388609
+                },
+                {
+                    "extra": {
+                        "current_time": 1767733471829.0,
+                        "elapsed_time": 561.0,
+                        "flow": "LOG_IN",
+                        "start_time": 1767733471268.0,
+                        "waterfall_id": "ba00d441-0815-456e-90a2-a33ede78e222",
+                        "containermodule": "waterfall_log_in",
+                        "api_level": 31,
+                        "guid": "0ebfd433-4663-481e-b1a3-367db479c3aa",
+                        "source": null,
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "true"
+                    },
+                    "log_type": "client_event",
+                    "bg": "true",
+                    "time": 1767733471.834,
+                    "name": "get_google_account_attempt",
+                    "sampling_rate": 1,
+                    "tags": 8388609
+                },
+                {
+                    "extra": {
+                        "current_time": 1767733471835.0,
+                        "elapsed_time": 567.0,
+                        "error_type": "no_permission",
+                        "flow": "LOG_IN",
+                        "containermodule": "waterfall_log_in",
+                        "start_time": 1767733471268.0,
+                        "waterfall_id": "ba00d441-0815-456e-90a2-a33ede78e222",
+                        "guid": "0ebfd433-4663-481e-b1a3-367db479c3aa",
+                        "source": null,
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "true"
+                    },
+                    "log_type": "client_event",
+                    "bg": "true",
+                    "time": 1767733471.835,
+                    "name": "get_google_account_failure",
+                    "sampling_rate": 1,
+                    "tags": 8388609
+                },
+                {
+                    "extra": {
+                        "core": {
+                            "event_flow": "aymh",
+                            "waterfall_id": "",
+                            "event_step": "home_page",
+                            "access_flow_version": "",
+                            "extra_client_data": {
+                                "credential_type": "nonce"
+                            },
+                            "event": "ig_aymh_load_account_attempted",
+                            "event_category": "prefill_login_signal"
+                        },
+                        "aymh_params": {},
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "true"
+                    },
+                    "log_type": "client_event",
+                    "bg": "true",
+                    "time": 1767733471.874,
+                    "name": "caa_aymh_client_events_ig",
+                    "sampling_rate": 1,
+                    "tags": 8388609
+                },
+                {
+                    "extra": {
+                        "core": {
+                            "event_flow": "aymh",
+                            "waterfall_id": "",
+                            "event_step": "home_page",
+                            "access_flow_version": "",
+                            "extra_client_data": {
+                                "credential_type": "local_auth"
+                            },
+                            "event": "ig_aymh_load_account_attempted",
+                            "event_category": "prefill_login_signal"
+                        },
+                        "aymh_params": {},
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "true"
+                    },
+                    "log_type": "client_event",
+                    "bg": "true",
+                    "time": 1767733471.874,
+                    "name": "caa_aymh_client_events_ig",
+                    "sampling_rate": 1,
+                    "tags": 8388609
+                },
+                {
+                    "extra": {
+                        "core": {
+                            "event_flow": "aymh",
+                            "waterfall_id": "",
+                            "event_step": "home_page",
+                            "access_flow_version": "",
+                            "extra_client_data": {
+                                "credential_type": "cloud_nonce"
+                            },
+                            "event": "ig_aymh_load_account_attempted",
+                            "event_category": "prefill_login_signal"
+                        },
+                        "aymh_params": {},
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "true"
+                    },
+                    "log_type": "client_event",
+                    "bg": "true",
+                    "time": 1767733471.874,
+                    "name": "caa_aymh_client_events_ig",
+                    "sampling_rate": 1,
+                    "tags": 8388609
+                },
+                {
+                    "extra": {
+                        "core": {
+                            "event_flow": "aymh",
+                            "waterfall_id": "",
+                            "event_step": "home_page",
+                            "access_flow_version": "",
+                            "extra_client_data": {
+                                "credential_type": "none"
+                            },
+                            "event": "ig_aymh_load_account_attempted",
+                            "event_category": "prefill_login_signal"
+                        },
+                        "aymh_params": {},
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "true"
+                    },
+                    "log_type": "client_event",
+                    "bg": "true",
+                    "time": 1767733471.876,
+                    "name": "caa_aymh_client_events_ig",
+                    "sampling_rate": 1,
+                    "tags": 8388609
+                }
+            ]
+        },
+        {
+            "time": 1767733471404,
+            "app_id": "567067343352427",
+            "app_ver": "410.1.0.63.71",
+            "build_num": 846519343,
+            "consent_state": 0,
+            "device": "sdk_gphone64_arm64",
+            "os_ver": "12",
+            "device_id": "0ebfd433-4663-481e-b1a3-367db479c3aa",
+            "session_id": "UFS-12ba6cab-3977-4d4a-9943-4b290413537d-0",
+            "seq": 1,
+            "app_uid": "0",
+            "data": [
+                {
+                    "extra": {
+                        "marker_id": 27792138,
+                        "instance_id": 1035897792,
+                        "sample_rate": 1,
+                        "sample_source": 3,
+                        "time_since_boot_ms": 356509370,
+                        "duration_ns": 0,
+                        "action_id": 0,
+                        "marker_type": 1,
+                        "method": "random_sampling",
+                        "da_level": 7,
+                        "da_type": "app_init",
+                        "annotations_bool": {
+                            "qpl_internal__missing_config_tracker_enabled": false
+                        },
+                        "marker": "client_tti",
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "true"
+                    },
+                    "log_type": "client_event",
+                    "bg": "true",
+                    "time": 1767733471.382,
+                    "name": "perf",
+                    "sampling_rate": 1,
+                    "tags": 8388608
+                }
+            ]
+        },
+        {
+            "time": 1767733471393,
+            "app_id": "567067343352427",
+            "app_ver": "410.1.0.63.71",
+            "build_num": 846519343,
+            "consent_state": 0,
+            "device": "sdk_gphone64_arm64",
+            "os_ver": "12",
+            "device_id": "0ebfd433-4663-481e-b1a3-367db479c3aa",
+            "session_id": "UFS-12ba6cab-3977-4d4a-9943-4b290413537d-0",
+            "seq": 0,
+            "app_uid": "0",
+            "data": [
+                {
+                    "extra": {
+                        "app_device_id": "0ebfd433-4663-481e-b1a3-367db479c3aa",
+                        "analytics_device_id": null,
+                        "module": "instagram_device_ids",
+                        "waterfall_id": "ba00d441-0815-456e-90a2-a33ede78e222",
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "true"
+                    },
+                    "log_type": "client_event",
+                    "bg": "true",
+                    "time": 1767733471.349,
+                    "name": "instagram_device_ids",
+                    "sampling_rate": 1,
+                    "tags": 8388609
+                },
+                {
+                    "extra": {
+                        "build_num": 846519343,
+                        "installer": "com.google.android.packageinstaller",
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "true"
+                    },
+                    "log_type": "client_event",
+                    "bg": "true",
+                    "time": 1767733471.387,
+                    "name": "android_apk_testing_exposure",
+                    "sampling_rate": 1,
+                    "tags": 8388609
+                },
+                {
+                    "extra": {
+                        "pigeon_reserved_keyword_module": "IgResourcesAnalyticsModule",
+                        "app_locale": "en_US",
+                        "client_string_id": "2131966674",
+                        "device_locale": "en_US",
+                        "requested_locale": "en",
+                        "requested_fb_locale": "en_US",
+                        "translation_bundle_type": "frsc",
+                        "logger_version": 0,
+                        "logger_name": "FbtLoggerImpl",
+                        "requested_variations": [
+                            0,
+                            0
+                        ],
+                        "are_downloadable_strings_disabled": false,
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "true"
+                    },
+                    "log_type": "client_event",
+                    "bg": "true",
+                    "time": 1767733471.568,
+                    "module": "IgResourcesAnalyticsModule",
+                    "name": "intl_android_string_impressions",
+                    "sampling_rate": 1,
+                    "tags": 8388609
+                },
+                {
+                    "extra": {
+                        "pigeon_reserved_keyword_module": "IgResourcesAnalyticsModule",
+                        "app_locale": "en_US",
+                        "client_string_id": "2131966682",
+                        "device_locale": "en_US",
+                        "requested_locale": "en",
+                        "requested_fb_locale": "en_US",
+                        "translation_bundle_type": "frsc",
+                        "logger_version": 0,
+                        "logger_name": "FbtLoggerImpl",
+                        "requested_variations": [
+                            0,
+                            0
+                        ],
+                        "are_downloadable_strings_disabled": false,
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "true"
+                    },
+                    "log_type": "client_event",
+                    "bg": "true",
+                    "time": 1767733471.596,
+                    "module": "IgResourcesAnalyticsModule",
+                    "name": "intl_android_string_impressions",
+                    "sampling_rate": 1,
+                    "tags": 8388609
+                },
+                {
+                    "extra": {
+                        "pigeon_reserved_keyword_module": "IgResourcesAnalyticsModule",
+                        "app_locale": "en_US",
+                        "client_string_id": "2131966674",
+                        "device_locale": "en_US",
+                        "requested_locale": "en",
+                        "requested_fb_locale": "en_US",
+                        "translation_bundle_type": "frsc",
+                        "logger_version": 0,
+                        "logger_name": "FbtLoggerImpl",
+                        "requested_variations": [
+                            0,
+                            0
+                        ],
+                        "are_downloadable_strings_disabled": false,
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "true"
+                    },
+                    "log_type": "client_event",
+                    "bg": "true",
+                    "time": 1767733471.785,
+                    "module": "IgResourcesAnalyticsModule",
+                    "name": "intl_android_string_impressions",
+                    "sampling_rate": 1,
+                    "tags": 8388609
+                },
+                {
+                    "extra": {
+                        "pigeon_reserved_keyword_module": "IgResourcesAnalyticsModule",
+                        "app_locale": "en_US",
+                        "client_string_id": "2131966682",
+                        "device_locale": "en_US",
+                        "requested_locale": "en",
+                        "requested_fb_locale": "en_US",
+                        "translation_bundle_type": "frsc",
+                        "logger_version": 0,
+                        "logger_name": "FbtLoggerImpl",
+                        "requested_variations": [
+                            0,
+                            0
+                        ],
+                        "are_downloadable_strings_disabled": false,
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "true"
+                    },
+                    "log_type": "client_event",
+                    "bg": "true",
+                    "time": 1767733471.786,
+                    "module": "IgResourcesAnalyticsModule",
+                    "name": "intl_android_string_impressions",
+                    "sampling_rate": 1,
+                    "tags": 8388609
+                }
+            ]
+        }
+    ],
+    "request_info": {
+        "tier": "micro_batch",
+        "sent_time": 1767733471.922,
+        "carrier": "T-Mobile",
+        "conn": "WIFI"
+    },
+    "config": {
+        "config_checksum": null,
+        "config_version": "v2",
+        "qpl_config_version": "v7",
+        "app_ver": "410.1.0.63.71",
+        "app_uid": "0"
+    }
+}

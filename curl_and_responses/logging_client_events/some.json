@@ -1,0 +1,679 @@
+{
+    "batches": [
+        {
+            "time": 1767733472877,
+            "app_id": "567067343352427",
+            "app_ver": "410.1.0.63.71",
+            "build_num": 846519343,
+            "consent_state": 0,
+            "device": "sdk_gphone64_arm64",
+            "os_ver": "12",
+            "device_id": "0ebfd433-4663-481e-b1a3-367db479c3aa",
+            "family_device_id": "b6afc6a3-5ea1-4c8f-978b-77c073981870",
+            "session_id": "UFS-12ba6cab-3977-4d4a-9943-4b290413537d-0",
+            "seq": 8,
+            "app_uid": "0",
+            "data": [
+                {
+                    "extra": {
+                        "task_id": 188,
+                        "stack_trace": "",
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "false"
+                    },
+                    "log_type": "client_event",
+                    "bg": "false",
+                    "time": 1767733472.673,
+                    "name": "ig_executor_stuck_worker",
+                    "sampling_rate": 1,
+                    "tags": 8388609
+                },
+                {
+                    "extra": {
+                        "marker_id": 15335435,
+                        "instance_id": 2128917847,
+                        "sample_rate": 1,
+                        "sample_source": 3,
+                        "time_since_boot_ms": 356507268,
+                        "duration_ns": 3439000613,
+                        "action_id": 630,
+                        "marker_type": 1,
+                        "method": "random_sampling",
+                        "annotations": {
+                            "type": "cold",
+                            "failure_reason": "no_surface_attached",
+                            "logger_version": "4",
+                            "trigger": "normal",
+                            "trigger_intent_action": "android.intent.action.MAIN",
+                            "peeker_intent_action": "android.intent.action.MAIN",
+                            "first_intent_from_dextr": "com.instagram.android/.activity.MainTabActivity:android.intent.action.MAIN:android.intent.category.LAUNCHER:",
+                            "first_intent_from_peeker": "com.instagram.android/.activity.MainTabActivity:android.intent.action.MAIN:android.intent.category.LAUNCHER:",
+                            "component_sequence": "[{\"type\":\"activity\",\"className\":\"com.instagram.process.asyncinit.IgSplashScreenActivity\",\"component\":\"{com.instagram.android\\/com.instagram.android.activity.MainTabActivity}\",\"action\":\"android.intent.action.MAIN\"},{\"type\":\"receiver\",\"className\":\"com.instagram.util.startup.appwarmer.KeepWarmReceiver\",\"component\":\"{com.instagram.android\\/com.instagram.util.startup.appwarmer.KeepWarmReceiver}\"},{\"type\":\"activity\",\"className\":\"com.instagram.mainactivity.InstagramMainActivity\",\"component\":\"{com.instagram.android\\/com.instagram.android.activity.MainTabActivity}\",\"action\":\"android.intent.action.MAIN\"},{\"type\":\"activity\",\"className\":\"com.instagram.nux.activity.BloksSignedOutFragmentActivity\",\"component\":\"{com.instagram.android\\/com.instagram.nux.activity.BloksSignedOutFragmentActivity}\"}]",
+                            "current_module": "unknown",
+                            "first_user_trigger": "normal",
+                            "first_intent_action": "android.intent.action.MAIN",
+                            "build_type": "prod",
+                            "first_run": "on_install"
+                        },
+                        "annotations_bool": {
+                            "user_has_cutover_thread": false,
+                            "is_async_app_init": true,
+                            "is_successful": false,
+                            "is_background_restricted": false,
+                            "has_intent_peerker": true,
+                            "has_peek_cold_start_intent_available": false,
+                            "user_logged_in": false
+                        },
+                        "annotations_string_array": {
+                            "trigger_intent_category": [
+                                "android.intent.category.LAUNCHER"
+                            ],
+                            "peeker_intent_category": [
+                                "android.intent.category.LAUNCHER"
+                            ],
+                            "first_intent_category": [
+                                "android.intent.category.LAUNCHER"
+                            ],
+                            "attach_sequence": []
+                        },
+                        "annotations_int": {
+                            "fg_start_count": 0,
+                            "peeker_intent_count": 1,
+                            "time_since_upgrade_ms": 83353632,
+                            "foreground_cold_start_count_since_upgrade": 1,
+                            "all_cold_start_count_since_upgrade": 1,
+                            "foreground_timespent_since_upgrade_ms": 0
+                        },
+                        "marker": "client_tti",
+                        "points": [
+                            {
+                                "timeSinceStart": -356507268,
+                                "name": "MLOCK_INIT_START"
+                            },
+                            {
+                                "timeSinceStart": -356507268,
+                                "name": "MLOCK_INIT_END"
+                            },
+                            {
+                                "timeSinceStart": -356507268,
+                                "name": "FIXIE_INIT_START"
+                            },
+                            {
+                                "timeSinceStart": -356507268,
+                                "name": "FIXIE_INIT_END"
+                            },
+                            {
+                                "timeSinceStart": -356507268,
+                                "name": "STARTUP_DETECTOR_INIT_START"
+                            },
+                            {
+                                "timeSinceStart": -356507268,
+                                "name": "STARTUP_DETECTOR_INIT_END"
+                            },
+                            {
+                                "timeSinceStart": -356507268,
+                                "name": "SESSION_INIT_START"
+                            },
+                            {
+                                "timeSinceStart": -356507268,
+                                "name": "SESSION_INIT_END"
+                            },
+                            {
+                                "timeSinceStart": -356507268,
+                                "name": "QE_INIT_START"
+                            },
+                            {
+                                "timeSinceStart": -356507268,
+                                "name": "QE_INIT_END"
+                            },
+                            {
+                                "timeSinceStart": -356507268,
+                                "name": "HTTP_SERVICE_INIT_START"
+                            },
+                            {
+                                "timeSinceStart": -356507268,
+                                "name": "HTTP_SERVICE_INIT_END"
+                            },
+                            {
+                                "timeSinceStart": -356507268,
+                                "name": "FEED_REQUEST_INIT_START"
+                            },
+                            {
+                                "timeSinceStart": -356507268,
+                                "name": "FEED_REQUEST_INIT_END"
+                            },
+                            {
+                                "timeSinceStart": -356507268,
+                                "name": "QPL_INIT_START"
+                            },
+                            {
+                                "timeSinceStart": -356507268,
+                                "name": "QPL_INIT_END"
+                            },
+                            {
+                                "timeSinceStart": -356507268,
+                                "name": "MEMORY_MANAGER_INIT_START"
+                            },
+                            {
+                                "timeSinceStart": -356507268,
+                                "name": "MEMORY_MANAGER_INIT_END"
+                            },
+                            {
+                                "timeSinceStart": -356507268,
+                                "name": "FIXIE_INIT_POST_QE_START"
+                            },
+                            {
+                                "timeSinceStart": -356507268,
+                                "name": "FIXIE_INIT_POST_QE_END"
+                            },
+                            {
+                                "timeSinceStart": 1694,
+                                "name": "QuickExperimentManagerFactoryImpl-Initialize_START"
+                            },
+                            {
+                                "timeSinceStart": 1694,
+                                "name": "QuickExperimentManagerFactoryImpl-Initialize_END"
+                            },
+                            {
+                                "timeSinceStart": 1694,
+                                "name": "QEInitializer-InitDeviceManager_START"
+                            },
+                            {
+                                "timeSinceStart": 1696,
+                                "name": "QEManagerFactory-CreateMobileConfig-1_START"
+                            },
+                            {
+                                "timeSinceStart": 1717,
+                                "name": "QEManagerFactory-CreateMobileConfig-1_END"
+                            },
+                            {
+                                "timeSinceStart": 1717,
+                                "name": "QEInitializer-InitDeviceManager_END"
+                            },
+                            {
+                                "timeSinceStart": 1717,
+                                "name": "QEInitializer-Create-Immediate-Device-Only-Test_START"
+                            },
+                            {
+                                "timeSinceStart": 1727,
+                                "name": "QEInitializer-Create-Immediate-Device-Only-Test_END"
+                            },
+                            {
+                                "timeSinceStart": 1727,
+                                "name": "QEInitializer-Send-Deferred-Logs_START"
+                            },
+                            {
+                                "timeSinceStart": 1727,
+                                "name": "QEInitializer-Send-Deferred-Logs_END"
+                            },
+                            {
+                                "timeSinceStart": 1727,
+                                "name": "STORAGE_INIT_START"
+                            },
+                            {
+                                "timeSinceStart": 1736,
+                                "name": "STORAGE_INIT_END"
+                            },
+                            {
+                                "timeSinceStart": 1740,
+                                "name": "HTTP_SERVICE_INFRA_INIT_START"
+                            },
+                            {
+                                "timeSinceStart": 1741,
+                                "name": "BOTTOM_HTTP_LAYER_INIT_START"
+                            },
+                            {
+                                "timeSinceStart": 1073,
+                                "name": "RELIABILITY_INITIALIZED"
+                            },
+                            {
+                                "timeSinceStart": 1059,
+                                "name": "SOLOADER_INITIALIZED"
+                            },
+                            {
+                                "timeSinceStart": 1100,
+                                "name": "MULTIDEX_INSTALLED"
+                            },
+                            {
+                                "timeSinceStart": 1622,
+                                "name": "APP_ONCREATE_START"
+                            },
+                            {
+                                "timeSinceStart": 119,
+                                "name": "EARLY_EXPERIMENTS_HELPER_INIT_START"
+                            },
+                            {
+                                "timeSinceStart": 120,
+                                "name": "EARLY_EXPERIMENTS_HELPER_INIT_END"
+                            },
+                            {
+                                "timeSinceStart": 1790,
+                                "name": "FB_ACCOUNT_INIT_START"
+                            },
+                            {
+                                "timeSinceStart": 1790,
+                                "name": "FB_ACCOUNT_INIT_END"
+                            },
+                            {
+                                "timeSinceStart": 1894,
+                                "name": "BOTTOM_HTTP_LAYER_INIT_END"
+                            },
+                            {
+                                "timeSinceStart": 1935,
+                                "name": "BLOKS_INIT_START"
+                            },
+                            {
+                                "timeSinceStart": 1936,
+                                "name": "BLOKS_INIT_END"
+                            },
+                            {
+                                "timeSinceStart": 1942,
+                                "name": "IMAGE_INFRA_INIT_START"
+                            },
+                            {
+                                "timeSinceStart": 1953,
+                                "name": "HTTP_SERVICE_INFRA_INIT_END"
+                            },
+                            {
+                                "timeSinceStart": 1978,
+                                "name": "IMAGE_INFRA_INIT_END"
+                            },
+                            {
+                                "timeSinceStart": 1608,
+                                "name": "STARTUP_SCHEDULER_INIT"
+                            },
+                            {
+                                "timeSinceStart": 2174,
+                                "name": "APP_ONCREATE_END"
+                            },
+                            {
+                                "timeSinceStart": 2235,
+                                "name": "ACTIVITY_ONCREATE_START"
+                            }
+                        ],
+                        "metadata": {
+                            "cpu_stats": {
+                                "start_pri": -10,
+                                "stop_pri": -16,
+                                "ps_cpu_ms": 3706,
+                                "th_cpu_ms": 631,
+                                "low_power_state": "not set"
+                            },
+                            "io_stats": {
+                                "ps_flt": 7242,
+                                "proc_delayacct_blkio_ticks": 52,
+                                "loaded_libs": 9,
+                                "th_flt": 2393,
+                                "class_load_attempts": 5719,
+                                "dex_queries": 0,
+                                "class_loads_failed": 16,
+                                "locator_assists": 0,
+                                "wrong_dfa_guesses": 0,
+                                "ps_min_flt": 193372,
+                                "avail_disk_spc_kb": 4829716,
+                                "io_readbytes": 558018560,
+                                "io_readchars": 22802975,
+                                "io_readsyscalls": 4042,
+                                "io_writebytes": 105222144,
+                                "io_writechars": 104609994,
+                                "io_writesyscalls": 26739,
+                                "io_cancelledwb": 126976
+                            },
+                            "memory_stats": {
+                                "avail_mem": 355872768,
+                                "low_mem": 226492416,
+                                "total_mem": 2061529088,
+                                "native_heap_at_start": 4656016,
+                                "java_heap_at_start": 2701360
+                            }
+                        },
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "false"
+                    },
+                    "log_type": "client_event",
+                    "bg": "false",
+                    "time": 1767733472.8,
+                    "name": "perf",
+                    "sampling_rate": 1,
+                    "tags": 8388608
+                },
+                {
+                    "extra": {
+                        "custom_uuid": "0ebfd433-4663-481e-b1a3-367db479c3aa",
+                        "new_id": "b6afc6a3-5ea1-4c8f-978b-77c073981870",
+                        "new_ts": 1767733472716,
+                        "type": "initial_create",
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "false"
+                    },
+                    "log_type": "client_event",
+                    "bg": "false",
+                    "time": 1767733472.87,
+                    "name": "phoneid_update",
+                    "sampling_rate": 1,
+                    "tags": 8388608
+                },
+                {
+                    "extra": {
+                        "mc_event_name": "mobile_config_sync_request_complete",
+                        "str_data": {
+                            "prepare_request_latency": "4",
+                            "using_partial_fetch": "SYNC_FULL",
+                            "time_elapsed": "1216",
+                            "is_sessionless": "kMobileConfigSessionless",
+                            "response_size": "32804",
+                            "extend_bln_schema": "0",
+                            "sync_fetch_reason": "FreshInstall",
+                            "network_latency": "1211",
+                            "manager_name": "sessionless_manager",
+                            "extra_data": "{\"curSchemaHash\":\"ccbd573dd009dbdf739d250f92b2b8bf\",\"curVer\":\"410.1.0.63.71\",\"hasFullSyncCompEver\":\"-1\",\"hasFullSyncCompInSes\":\"0\",\"hasPartSyncCompEver\":\"-1\",\"hasPartSyncCompInSes\":\"0\",\"isFirstUser\":\"1\",\"lastCacheSchemaHash\":\"\",\"lastCacheTimeInSec\":\"0\",\"lastCacheVer\":\"\",\"lastFullSyncCompVer\":\"\",\"lastPartSyncCompVer\":\"\",\"sessionStartTimes\":\"1:1767733470965,3:0\",\"syncCompTime\":\"1767733472935\"}",
+                            "sync_fetch_success": "true",
+                            "sync_fetch_failure_reason": "Success",
+                            "debug_string": "",
+                            "handle_response_latency": "0"
+                        },
+                        "int_data": {},
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "false"
+                    },
+                    "log_type": "client_event",
+                    "bg": "false",
+                    "time": 1767733472.948,
+                    "name": "mobile_config_general_cases",
+                    "sampling_rate": 1,
+                    "tags": 8388609
+                }
+            ]
+        },
+        {
+            "time": 1767733472818,
+            "app_id": "567067343352427",
+            "app_ver": "410.1.0.63.71",
+            "build_num": 846519343,
+            "consent_state": 0,
+            "device": "sdk_gphone64_arm64",
+            "os_ver": "12",
+            "device_id": "0ebfd433-4663-481e-b1a3-367db479c3aa",
+            "family_device_id": "b6afc6a3-5ea1-4c8f-978b-77c073981870",
+            "session_id": "UFS-12ba6cab-3977-4d4a-9943-4b290413537d-0",
+            "seq": 6,
+            "app_uid": "0",
+            "data": [
+                {
+                    "extra": {
+                        "event": 42,
+                        "item_type": 1,
+                        "target_credential_source": 1,
+                        "target_app_source": 1,
+                        "target_device_item_source": null,
+                        "failure_reason": "APP_NOT_INSTALLED",
+                        "event_session_id": null,
+                        "debug_test_data": {
+                            "waterfall_id": "800d325a-026b-4c79-9a2f-1b1c36ccc845",
+                            "instance_key": "74394663",
+                            "failure_reason": "com.facebook.katana",
+                            "resolver_name": "LEGACY_PROVIDER"
+                        },
+                        "version_id": "2.0",
+                        "table_join_id": "",
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "false"
+                    },
+                    "log_type": "client_event",
+                    "bg": "false",
+                    "time": 1767733472.67,
+                    "name": "fx_access_library",
+                    "sampling_rate": 1,
+                    "tags": 8388609
+                },
+                {
+                    "extra": {
+                        "event": 42,
+                        "item_type": 1,
+                        "target_credential_source": 1,
+                        "target_app_source": 3,
+                        "target_device_item_source": null,
+                        "failure_reason": "APP_NOT_INSTALLED",
+                        "event_session_id": null,
+                        "debug_test_data": {
+                            "waterfall_id": "2eb66b40-414c-4816-ba49-b9cd9e01f1ae",
+                            "instance_key": "2141829864",
+                            "failure_reason": "com.facebook.orca",
+                            "resolver_name": "LEGACY_PROVIDER"
+                        },
+                        "version_id": "2.0",
+                        "table_join_id": "",
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "false"
+                    },
+                    "log_type": "client_event",
+                    "bg": "false",
+                    "time": 1767733472.672,
+                    "name": "fx_access_library",
+                    "sampling_rate": 1,
+                    "tags": 8388609
+                },
+                {
+                    "extra": {
+                        "carrier_id": 0,
+                        "carrier_name": "",
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "false"
+                    },
+                    "log_type": "client_event",
+                    "bg": "false",
+                    "time": 1767733472.847,
+                    "name": "ig_zero_token_fetch_success",
+                    "sampling_rate": 1,
+                    "tags": 8388609
+                },
+                {
+                    "extra": {
+                        "pigeon_reserved_keyword_module": "",
+                        "core": {
+                            "caa_core_data_encrypted": "AXe6deae-VX05flFoMOqM227-O7tmSYwojPQsJ5_FDbY6nB1P2YLLHGyb7B_KzrFEO9aaZ5lmFJFncr59iVEdLy_0hyLWhQbdnafg5OwFT6OKiQ0nyMfNgrBiGRZq34WzP31pavMUlObM6GHGl7_jVjQM54YJf0KfBDUYeNd_ggfk0avrkXJpJBR_ctx7rllaXOV7J5od7fNAdXK2mJUnmsWp3gh9DsBcHRyIyuo6eg4H6m2IQP7azIAXTBZYegM6qwuNd0JnPB8j9oH37H2-gFRPA8HeiURYn3xSTqg9BGgaxUZdoHyrlRcI1A2LAazoI8jrgd3KMH8SRD6bd-K0gVCfde9aKaOTK4Vk8AK",
+                            "is_dark_mode": false,
+                            "event_flow": "nta",
+                            "waterfall_id": "6c79c9de-55cc-4404-99d9-a88591831e9e",
+                            "exception_code": 0,
+                            "exception_type": "",
+                            "access_flow_version": "LEGACY_FLOW",
+                            "event_step": "landing",
+                            "extra_client_data_bks_input": {},
+                            "event": "registration_flow_state",
+                            "event_category": "registration_funnel",
+                            "exception_message": ""
+                        },
+                        "acquisition_client_params": {
+                            "age_range": null,
+                            "youth_regulation_enabled": false,
+                            "regulation_jurisdiction": null,
+                            "exception_category": "",
+                            "contactpoint": null,
+                            "notif_medium": "null",
+                            "state": "no_eligible_nta_landing_page_accounts",
+                            "registration_flow_id": "",
+                            "entry_point": "",
+                            "reg_instance": "0ebfd433-4663-481e-b1a3-367db479c3aa",
+                            "created_userid": 0,
+                            "nta_candidates": []
+                        },
+                        "nav_chain": null,
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": 0.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "false"
+                    },
+                    "log_type": "client_event",
+                    "bg": "false",
+                    "time": 1767733473.126,
+                    "module": "",
+                    "name": "caa_acquisition_client_ig_event",
+                    "sampling_rate": 1,
+                    "tags": 8404992
+                },
+                {
+                    "extra": {
+                        "pigeon_reserved_keyword_module": "",
+                        "core": {
+                            "source_app_id": null,
+                            "is_dark_mode": false,
+                            "waterfall_id": "6c79c9de-55cc-4404-99d9-a88591831e9e",
+                            "zero_balance_state": "none",
+                            "contactpoint": null,
+                            "event_category": "aymh_home_page_init",
+                            "caa_core_data_encrypted": "AXfAWJaS6g0tbRV23IfrlZeAfuVrE1laRxxoW0h0sOhP4zWUxegpmpJz_OAVK_ppRHST0zgcEdnW0lovDhg2283jKkaoDZvfP0SXbzK-usSc9WJ3dLxqLu3cND46f72zSSnEj-Udxr6lZ-_bFm-nneNL6VyJjFXDySAAbZEJ_DgbMMXo9NhDLQvuExEhMQ7Wii4tu4uZP_cBay-1aZy-3pLkJ9jwhIFOpZDyHvi-abtT8XSP_C6ALAF4-z5MZCtIVZyEewtYhZAMPYRmor7fWFzRnDD99I7mLhmquAJZ3dO7Yb_j7uUkR06feya4dK8ouqhMpK7Ht5ps7Z84VaHKwrNpHH9FOK7P-SoVASShwNPpb5VQSePpvr-1cRbIBfkxkkx-1f6yxW0jBxTcXLwKuxUuTKMwGvIyWFDiWFiWuei_hHum523Jbg6kK7lH1vM9bVbjtE75U-gwaULGSWoWPPnXWtb1wWY9FFVUs8JC06sw2zOo7Ak2nxACE6O-NAY2cNfDprf2iZ1Z26IIVOco8Q6PRU8c0k8g3bbLOgqHf-Czka3TeJLVpNxnZGxVn7ziwfnbDNEYLEDBizLlLYfRLXLrC0HNHNot5W34yOS14MVOWQ-Kz9jf8ACKZAtGwjebeaPFPig",
+                            "rl_client_session_id": null,
+                            "client_error_message": null,
+                            "event_flow": "aymh",
+                            "access_flow_version": "LEGACY_FLOW",
+                            "event_step": "home_page",
+                            "www_request_id": "AG2zV6gEui-552BMVuftk3M",
+                            "extra_client_data_bks_input": {
+                                "is_from_switcher": "0",
+                                "is_from_logged_out": "0"
+                            },
+                            "event": "aymh_screen_skipped_no_profiles"
+                        },
+                        "aymh_params": {},
+                        "nav_chain": null,
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "false"
+                    },
+                    "log_type": "client_event",
+                    "bg": "false",
+                    "time": 1767733473.126,
+                    "module": "",
+                    "name": "caa_aymh_client_events_ig",
+                    "sampling_rate": 1,
+                    "tags": 8404992
+                }
+            ]
+        },
+        {
+            "time": 1767733472869,
+            "app_id": "567067343352427",
+            "app_ver": "410.1.0.63.71",
+            "build_num": 846519343,
+            "consent_state": 0,
+            "device": "sdk_gphone64_arm64",
+            "os_ver": "12",
+            "device_id": "0ebfd433-4663-481e-b1a3-367db479c3aa",
+            "family_device_id": "b6afc6a3-5ea1-4c8f-978b-77c073981870",
+            "session_id": "UFS-12ba6cab-3977-4d4a-9943-4b290413537d-0",
+            "seq": 7,
+            "app_uid": "0",
+            "data": [
+                {
+                    "extra": {
+                        "pigeon_reserved_keyword_module": "IgResourcesAnalyticsModule",
+                        "app_locale": "en_US",
+                        "client_string_id": "2131960657",
+                        "device_locale": "en_US",
+                        "requested_locale": "en",
+                        "requested_fb_locale": "en_US",
+                        "translation_bundle_type": "frsc",
+                        "logger_version": 0,
+                        "logger_name": "FbtLoggerImpl",
+                        "requested_variations": [
+                            0,
+                            0
+                        ],
+                        "are_downloadable_strings_disabled": false,
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "false"
+                    },
+                    "log_type": "client_event",
+                    "bg": "false",
+                    "time": 1767733472.509,
+                    "module": "IgResourcesAnalyticsModule",
+                    "name": "intl_android_string_impressions",
+                    "sampling_rate": 1,
+                    "tags": 8388609
+                },
+                {
+                    "extra": {
+                        "pigeon_reserved_keyword_module": "IgResourcesAnalyticsModule",
+                        "app_locale": "en_US",
+                        "client_string_id": "2131958128",
+                        "device_locale": "en_US",
+                        "requested_locale": "en",
+                        "requested_fb_locale": "en_US",
+                        "translation_bundle_type": "frsc",
+                        "logger_version": 0,
+                        "logger_name": "FbtLoggerImpl",
+                        "requested_variations": [
+                            0,
+                            0
+                        ],
+                        "are_downloadable_strings_disabled": false,
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "false"
+                    },
+                    "log_type": "client_event",
+                    "bg": "false",
+                    "time": 1767733472.771,
+                    "module": "IgResourcesAnalyticsModule",
+                    "name": "intl_android_string_impressions",
+                    "sampling_rate": 1,
+                    "tags": 8388609
+                }
+            ]
+        }
+    ],
+    "request_info": {
+        "tier": "micro_batch",
+        "sent_time": 1767733473.448,
+        "carrier": "T-Mobile",
+        "conn": "WIFI"
+    },
+    "config": {
+        "config_checksum": "qs|c=eyJwIjoiNGMwN2YzMzE1MzU2NzY3MGJlMWQzODRlNzY1MjBjYmYiLCJxIjoidjd8YjdiOGQ3YTdkZTZjNGM4MjViY2U2MzY3NWVhYjMxOWIifQ%3D%3D&ts=1767733473&qv=v7&s=aede544175a99f1adae284fd2896ef56",
+        "config_version": "v2",
+        "qpl_config_version": "v7",
+        "app_ver": "410.1.0.63.71",
+        "app_uid": "0"
+    }
+}

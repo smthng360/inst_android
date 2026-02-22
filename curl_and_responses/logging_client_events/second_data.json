@@ -1,0 +1,426 @@
+{
+    "batches": [
+        {
+            "time": 1767733472732,
+            "app_id": "567067343352427",
+            "app_ver": "410.1.0.63.71",
+            "build_num": 846519343,
+            "consent_state": 0,
+            "device": "sdk_gphone64_arm64",
+            "os_ver": "12",
+            "device_id": "0ebfd433-4663-481e-b1a3-367db479c3aa",
+            "family_device_id": "b6afc6a3-5ea1-4c8f-978b-77c073981870",
+            "session_id": "UFS-12ba6cab-3977-4d4a-9943-4b290413537d-0",
+            "seq": 5,
+            "app_uid": "0",
+            "data": [
+                {
+                    "extra": {
+                        "current_version": 700,
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -2.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "false"
+                    },
+                    "log_type": "client_event",
+                    "bg": "false",
+                    "time": 1767733472.683,
+                    "name": "ig_emergency_push_did_set_initial_version",
+                    "sampling_rate": 1,
+                    "tags": 8388608
+                }
+            ]
+        },
+        {
+            "time": 1767733472355,
+            "app_id": "567067343352427",
+            "app_ver": "410.1.0.63.71",
+            "build_num": 846519343,
+            "consent_state": 0,
+            "device": "sdk_gphone64_arm64",
+            "os_ver": "12",
+            "device_id": "0ebfd433-4663-481e-b1a3-367db479c3aa",
+            "session_id": "UFS-12ba6cab-3977-4d4a-9943-4b290413537d-0",
+            "seq": 4,
+            "app_uid": "0",
+            "data": [
+                {
+                    "extra": {
+                        "350685531728": false,
+                        "256002347743983": false,
+                        "121876164619130": false,
+                        "567067343352427": true,
+                        "881555691867714": false,
+                        "3419628305025917": false,
+                        "306069495113": false,
+                        "1548792348668883": false,
+                        "1437758943160428": false,
+                        "388177446008673": false,
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "false"
+                    },
+                    "log_type": "client_event",
+                    "bg": "false",
+                    "time": 1767733472.124,
+                    "name": "app_installations",
+                    "sampling_rate": 1,
+                    "tags": 8388608
+                },
+                {
+                    "extra": {
+                        "core": {
+                            "event_flow": "aymh",
+                            "waterfall_id": "6c79c9de-55cc-4404-99d9-a88591831e9e",
+                            "event_step": "home_page",
+                            "access_flow_version": "",
+                            "event": "ig_login_home_shown",
+                            "event_category": "prefill_login_signal"
+                        },
+                        "aymh_params": {},
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "false"
+                    },
+                    "log_type": "client_event",
+                    "bg": "false",
+                    "time": 1767733472.167,
+                    "name": "caa_aymh_client_events_ig",
+                    "sampling_rate": 1,
+                    "tags": 8388609
+                }
+            ]
+        },
+        {
+            "time": 1767733472058,
+            "app_id": "567067343352427",
+            "app_ver": "410.1.0.63.71",
+            "build_num": 846519343,
+            "consent_state": 0,
+            "device": "sdk_gphone64_arm64",
+            "os_ver": "12",
+            "device_id": "0ebfd433-4663-481e-b1a3-367db479c3aa",
+            "session_id": "UFS-12ba6cab-3977-4d4a-9943-4b290413537d-0",
+            "seq": 3,
+            "app_uid": "0",
+            "data": [
+                {
+                    "extra": {
+                        "event": 42,
+                        "item_type": 1,
+                        "target_credential_source": 1,
+                        "target_app_source": 1,
+                        "target_device_item_source": null,
+                        "failure_reason": "APP_NOT_INSTALLED",
+                        "event_session_id": null,
+                        "debug_test_data": {
+                            "waterfall_id": "1c62ceeb-ad55-4b37-bb27-c6bc4ae35c66",
+                            "instance_key": "1738956971",
+                            "failure_reason": "com.facebook.katana",
+                            "resolver_name": "LITE_PROVIDER"
+                        },
+                        "version_id": "3.0",
+                        "table_join_id": "",
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "true"
+                    },
+                    "log_type": "client_event",
+                    "bg": "true",
+                    "time": 1767733472.049,
+                    "name": "fx_access_library",
+                    "sampling_rate": 1,
+                    "tags": 8388609
+                },
+                {
+                    "extra": {
+                        "event": 42,
+                        "item_type": 1,
+                        "target_credential_source": 4,
+                        "target_app_source": 1,
+                        "target_device_item_source": null,
+                        "failure_reason": "APP_NOT_INSTALLED",
+                        "event_session_id": null,
+                        "debug_test_data": {
+                            "waterfall_id": "c80b9f01-c0ee-4f98-b76b-9e6c05f0806f",
+                            "instance_key": "280107613",
+                            "failure_reason": "com.facebook.katana",
+                            "resolver_name": "LITE_PROVIDER"
+                        },
+                        "version_id": "3.0",
+                        "table_join_id": "",
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "true"
+                    },
+                    "log_type": "client_event",
+                    "bg": "true",
+                    "time": 1767733472.055,
+                    "name": "fx_access_library",
+                    "sampling_rate": 1,
+                    "tags": 8388609
+                },
+                {
+                    "extra": {
+                        "core": {
+                            "event_flow": "aymh",
+                            "waterfall_id": "",
+                            "event_step": "home_page",
+                            "access_flow_version": "",
+                            "extra_client_data": {
+                                "credential_type": "facebook_active_session"
+                            },
+                            "event": "ig_aymh_load_account_attempted",
+                            "event_category": "prefill_login_signal"
+                        },
+                        "aymh_params": {},
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "true"
+                    },
+                    "log_type": "client_event",
+                    "bg": "true",
+                    "time": 1767733472.055,
+                    "name": "caa_aymh_client_events_ig",
+                    "sampling_rate": 1,
+                    "tags": 8388609
+                },
+                {
+                    "extra": {
+                        "core": {
+                            "event_flow": "aymh",
+                            "waterfall_id": "",
+                            "event_step": "home_page",
+                            "access_flow_version": "",
+                            "extra_client_data": {
+                                "credential_type": "facebook_local_auth"
+                            },
+                            "event": "ig_aymh_load_account_attempted",
+                            "event_category": "prefill_login_signal"
+                        },
+                        "aymh_params": {},
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "true"
+                    },
+                    "log_type": "client_event",
+                    "bg": "true",
+                    "time": 1767733472.055,
+                    "name": "caa_aymh_client_events_ig",
+                    "sampling_rate": 1,
+                    "tags": 8388609
+                },
+                {
+                    "extra": {
+                        "event": 42,
+                        "item_type": 1,
+                        "target_credential_source": 1,
+                        "target_app_source": 3,
+                        "target_device_item_source": null,
+                        "failure_reason": "APP_NOT_INSTALLED",
+                        "event_session_id": null,
+                        "debug_test_data": {
+                            "waterfall_id": "324d5b19-8554-4b06-8aab-0db5546224fe",
+                            "instance_key": "311306939",
+                            "failure_reason": "com.facebook.orca",
+                            "resolver_name": "LITE_PROVIDER"
+                        },
+                        "version_id": "3.0",
+                        "table_join_id": "",
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "true"
+                    },
+                    "log_type": "client_event",
+                    "bg": "true",
+                    "time": 1767733472.056,
+                    "name": "fx_access_library",
+                    "sampling_rate": 1,
+                    "tags": 8388609
+                },
+                {
+                    "extra": {
+                        "core": {
+                            "event_flow": "aymh",
+                            "waterfall_id": "",
+                            "event_step": "home_page",
+                            "access_flow_version": "",
+                            "extra_client_data": {
+                                "credential_type": "messenger_active_session"
+                            },
+                            "event": "ig_aymh_load_account_attempted",
+                            "event_category": "prefill_login_signal"
+                        },
+                        "aymh_params": {},
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "true"
+                    },
+                    "log_type": "client_event",
+                    "bg": "true",
+                    "time": 1767733472.056,
+                    "name": "caa_aymh_client_events_ig",
+                    "sampling_rate": 1,
+                    "tags": 8388609
+                },
+                {
+                    "extra": {
+                        "event": 42,
+                        "item_type": 1,
+                        "target_credential_source": 4,
+                        "target_app_source": 3,
+                        "target_device_item_source": null,
+                        "failure_reason": "APP_NOT_INSTALLED",
+                        "event_session_id": null,
+                        "debug_test_data": {
+                            "waterfall_id": "214c53ec-836a-4429-b827-2e5172fa23b3",
+                            "instance_key": "48423764",
+                            "failure_reason": "com.facebook.orca",
+                            "resolver_name": "LITE_PROVIDER"
+                        },
+                        "version_id": "3.0",
+                        "table_join_id": "",
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "true"
+                    },
+                    "log_type": "client_event",
+                    "bg": "true",
+                    "time": 1767733472.057,
+                    "name": "fx_access_library",
+                    "sampling_rate": 1,
+                    "tags": 8388609
+                },
+                {
+                    "extra": {
+                        "core": {
+                            "event_flow": "aymh",
+                            "waterfall_id": "",
+                            "event_step": "home_page",
+                            "access_flow_version": "",
+                            "extra_client_data": {
+                                "credential_type": "messenger_local_auth"
+                            },
+                            "event": "ig_aymh_load_account_attempted",
+                            "event_category": "prefill_login_signal"
+                        },
+                        "aymh_params": {},
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "true"
+                    },
+                    "log_type": "client_event",
+                    "bg": "true",
+                    "time": 1767733472.057,
+                    "name": "caa_aymh_client_events_ig",
+                    "sampling_rate": 1,
+                    "tags": 8388609
+                },
+                {
+                    "extra": {
+                        "event": 42,
+                        "item_type": 1,
+                        "target_credential_source": 1,
+                        "target_app_source": 7,
+                        "target_device_item_source": null,
+                        "failure_reason": "APP_NOT_INSTALLED",
+                        "event_session_id": null,
+                        "debug_test_data": {
+                            "waterfall_id": "3c608688-4f91-4240-968f-786c521c9c25",
+                            "instance_key": "1101380681",
+                            "failure_reason": "com.facebook.lite",
+                            "resolver_name": "LEGACY_PROVIDER"
+                        },
+                        "version_id": "3.0",
+                        "table_join_id": "",
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "true"
+                    },
+                    "log_type": "client_event",
+                    "bg": "true",
+                    "time": 1767733472.058,
+                    "name": "fx_access_library",
+                    "sampling_rate": 1,
+                    "tags": 8388609
+                },
+                {
+                    "extra": {
+                        "core": {
+                            "event_flow": "aymh",
+                            "waterfall_id": "",
+                            "event_step": "home_page",
+                            "access_flow_version": "",
+                            "extra_client_data": {
+                                "credential_type": "facebook_lite_active_session"
+                            },
+                            "event": "ig_aymh_load_account_attempted",
+                            "event_category": "prefill_login_signal"
+                        },
+                        "aymh_params": {},
+                        "pk": "0",
+                        "release_channel": "prod",
+                        "radio_type": "WIFI-UNKNOWN",
+                        "pigeon_reserved_keyword_requested_latency": -1.0,
+                        "pigeon_reserved_keyword_log_type": "client_event",
+                        "pigeon_reserved_keyword_bg": "true"
+                    },
+                    "log_type": "client_event",
+                    "bg": "true",
+                    "time": 1767733472.058,
+                    "name": "caa_aymh_client_events_ig",
+                    "sampling_rate": 1,
+                    "tags": 8388609
+                }
+            ]
+        }
+    ],
+    "request_info": {
+        "tier": "micro_batch",
+        "sent_time": 1767733472.815,
+        "carrier": "T-Mobile",
+        "conn": "WIFI"
+    },
+    "config": {
+        "config_checksum": "qs|c=eyJwIjoiNGMwN2YzMzE1MzU2NzY3MGJlMWQzODRlNzY1MjBjYmYiLCJxIjoidjd8YjdiOGQ3YTdkZTZjNGM4MjViY2U2MzY3NWVhYjMxOWIifQ%3D%3D&ts=1767733473&qv=v7&s=aede544175a99f1adae284fd2896ef56",
+        "config_version": "v2",
+        "qpl_config_version": "v7",
+        "app_ver": "410.1.0.63.71",
+        "app_uid": "0"
+    }
+}

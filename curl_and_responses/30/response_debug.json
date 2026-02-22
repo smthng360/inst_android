@@ -1,0 +1,41 @@
+{
+  "url": "https://api16-normal-c-useast1a.tiktokv.com/aweme/v1/user/profile/other/detailed?sec_user_id=MS4wLjABAAAAZKB8Vzmjg3ORL1VBloO6eNUKxBC-Q0dGWcVbjwnRtHTmQgmf5vZAzEPJ7XE__nam&with_mutual=true&address_book_access=1&from=6&user_avatar_shrink=188_188&user_cover_shrink=750_422&iid=7595721353493055244&device_id=7594930200333551160&ac=wifi&channel=googleplay&aid=1233&app_name=musical_ly&version_code=300102&version_name=30.1.2&device_platform=android&os=android&ab_version=30.1.2&ssmix=a&device_type=sdk_gphone64_arm64&device_brand=google&language=en&os_api=31&os_version=12&openudid=f8c68c3eb2e2cd19&manifest_version_code=2023001020&resolution=1080*2274&dpi=420&update_version_code=2023001020&_rticket=1768539581190&app_type=normal&sys_region=US&mcc_mnc=310260&timezone_name=Europe%2FKiev&carrier_region_v2=310&app_language=en&carrier_region=US&ac2=wifi&uoo=0&op_region=US&timezone_offset=7200&build_number=30.1.2&host_abi=arm64-v8a&locale=en&region=US&ts=1768539581&cdid=daf06892-fae4-4591-b131-cf5a21153051",
+  "status_code": 200,
+  "headers": {
+    "Content-Type": "application/json; charset=utf-8",
+    "X-Tt-Logid": "20260116133008ECCCC38FC34F46099B80",
+    "Tt_stable": "1",
+    "Bd-Tt-Error-Code": "0",
+    "Tt-Ticket-Guard-Result": "0",
+    "Content-Encoding": "gzip",
+    "Strict-Transport-Security": "max-age=31536000;includeSubDomains",
+    "Access-Control-Expose-Headers": "x-tt-traceflag,x-tt-logid",
+    "tt-idc-switch": "10000@20260116040658",
+    "x-tt-trace-host": "0149093e20e9d95b98c2460546f1c3b54e4374a73e4220c5d55b3518ad950b07ad49bcb611fb6578ac7333221f025da1b75cc7dd4b1650d27c16425193994b3556fbbd8943d7cf85deeab61a648ef24b560a5a16ab98f2b9c7139f5a81c66b0531600209d57697343e986a974edbe731c3",
+    "x-tt-trace-id": "00-c52c6cfc1069658ec222d1c60d7204d1-c52c6cfc1069658e-01",
+    "Server": "TLB",
+    "Content-Length": "124",
+    "X-Origin-Response-Time": "29,23.54.147.35",
+    "X-Akamai-Request-ID": "9467e5d.e17ee369",
+    "Expires": "Fri, 16 Jan 2026 05:30:09 GMT",
+    "Cache-Control": "max-age=0, no-cache, no-store",
+    "Pragma": "no-cache",
+    "Date": "Fri, 16 Jan 2026 05:30:09 GMT",
+    "X-Cache": "TCP_MISS from a104-94-100-166.deploy.akamaitechnologies.com (AkamaiGHost/22.3.3.1-71e9d5dfbd3c1d9c60c216bbd0edd340) (-)",
+    "Connection": "keep-alive",
+    "Vary": "Accept-Encoding",
+    "X-Cache-Remote": "TCP_MISS from a23-54-147-35.deploy.akamaitechnologies.com (AkamaiGHost/22.4.0.1-6bbb0b00129197009f3171ac050b188c) (-)",
+    "Alt-Svc": "h3=\":443\"; ma=93600",
+    "x-tt-trace-tag": "id=16;cdn-cache=miss;type=dyn",
+    "Server-Timing": "cdn-cache; desc=MISS, edge; dur=126, origin; dur=29, inner; dur=18",
+    "X-Parent-Response-Time": "131,104.94.100.166"
+  },
+  "json": {
+    "log_pb": {
+      "impr_id": "20260116133008ECCCC38FC34F46099B80"
+    },
+    "status_code": 0,
+    "status_msg": "url doesn't match"
+  },
+  "text": null
+}
