@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 import struct
 import uuid
 import random
@@ -17,12 +17,15 @@ import json
 from src.flow.schemas import InputIds, RegistrationDict
 from src.flow.user_agent import user_agents
 import hmac
-from time import timezone
 from src.flow.schemas import BloksPayloadType
 
 
 def generate_uuid() -> str:
     return str(uuid.uuid4())
+
+
+def generate_conn_uuid() -> str:
+    return uuid.uuid4().hex
 
 
 def create_pigeon_session_id() -> str:
@@ -110,6 +113,7 @@ def get_aacjid(initial_lispy: str) -> str:
 
     return data["aacjid"]
 
+
 def get_aac_init_timestamp(initial_lispy: str) -> int:
     json_str = re.search(r"\{.*\}", initial_lispy).group(0).replace('\\"', '"')
     data = json.loads(json_str)
@@ -167,10 +171,82 @@ def get_qpl_marker_id(text: str) -> int:
     return get_qpl_ids(text)[0]
 
 
+def get_qpl_after_password(text: str) -> float:
+    match = re.search(
+        r'(\d+)\s+(\d+)\s+\\*"com\.bloks\.www\.bloks\.caa\.reg\.birth',
+        text,
+    )
+    if match:
+        print(match.group(1), match.group(2))
+        return int(match.group(1)), float(match.group(2))
+    return None, None
+
+
+def get_qpl_after_birthdate(text: str) -> float:
+    options = [
+        r'(\d+)\s+(\d+)\s+\\*"com\.bloks\.www\.bloks\.caa\.reg\.name',
+        r'(\d+)\s+(\d+)\s+\\*"com\.bloks\.www\.bloks\.caa\.reg\.name"',
+    ]
+    match = re.search(
+        options[0], text
+    )
+    if match:        
+        print(match.group(1), match.group(2))
+        return int(match.group(1)), float(match.group(2))
+    
+    match = re.search(
+            options[1], text
+        )
+    if match:
+        print(match.group(1), match.group(2))
+        return int(match.group(1)), float(match.group(2))
+    return None, None
+
+
+def get_qpl_after_name(text: str) -> float:
+    options = [
+        r'(\d+)\s+(\d+)\s+\\*"com\.bloks\.www\.bloks\.caa\.reg\.userna',
+        r'(\d+)\s+(\d+)\s+\\*"com\.bloks\.www\.bloks\.caa\.reg\.userna',
+        ]
+    match = re.search(
+        options[0],
+        text,
+    )
+    if match:
+        print(match.group(1), match.group(2))
+        return int(match.group(1)), float(match.group(2))
+    
+    match = re.search(
+        options[1], text)
+    if match:
+        print(match.group(1), match.group(2))
+        return int(match.group(1)), float(match.group(2))
+    return None, None
+
+def get_qpl_after_username_submit(text: str) -> float:
+    options = [
+        r'(\d+)\s+(\d+)\s+\\*"com\.bloks\.www\.bloks\.caa\.reg\.create\.acco',
+    ]
+    match = re.search(
+        options[0],
+        text,
+    )
+    if match:
+        return int(match.group(1)), float(match.group(2))
+    return None, None
+
+
+def remake_qpl_instace_id(text: str, qpl_instance_id: float) -> str:
+    s = format(qpl_instance_id, ".13E")
+    s = s.replace("E+", "E")
+    return text.replace(str(qpl_instance_id), s)
+
+
 def extract_event_id(text: str) -> str:
-    pass
-
-
+    matches = re.findall(r'\(dkc\s+\\*"?([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\\*"?', text[:text.index('first_name')])
+    if matches:
+        return matches[-1]
+    return None
 
 def safetynet_token(email: str, timestamp: int) -> str:
     payload = f"{email}|{timestamp}".encode()
@@ -221,7 +297,7 @@ def get_registration_dictionary(
 
 
 def get_registration_context_token(
-    response: dict, bloks_type: BloksPayloadType = BloksPayloadType.ACTION
+    response: dict, bloks_type: BloksPayloadType = BloksPayloadType.ACTION, position: int = -1
 ) -> list[str]:
     bl_pl = __bloks_payload(response, bloks_type)
 
@@ -235,7 +311,7 @@ def get_registration_context_token(
     matches = re.findall(r'[^"]*\|regm', layout_str)
 
     if matches:
-        return matches[-1]
+        return matches[position]
 
 
 def find_reg_inputs(text: str):
@@ -283,12 +359,11 @@ def get_confirmation_code_input_id(
 
 
 def get_qpl_for_confirmation_code(text: str) -> tuple[float]:
-    pattern = r'(\d+)\s*(?:\\+)?\"com\.bloks\.www\.bloks\.caa\.reg\.confirmation\.async'
+    pattern = r"(\d+)\s*(?:\\+)?\"com\.bloks\.www\.bloks\.caa\.reg\.confirmation\.async"
 
     match = re.findall(pattern, text)
     if match:
-        number = match[-1]  
+        number = match[-1]
         return float(number)
     else:
         print("No match")
-

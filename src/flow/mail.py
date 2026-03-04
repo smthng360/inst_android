@@ -11,14 +11,15 @@ from aioimaplib import aioimaplib
 
 
 def comparate_date(date_str: str, submission_time: datetime) -> bool:
-    date_str = re.sub(r'\s*\(.*?\)\s*$', '', date_str).strip()
+    date_str = re.sub(r"\s*\(.*?\)\s*$", "", date_str).strip()
     parsed_date = datetime.strptime(date_str, "%a, %d %b %Y %H:%M:%S %z")
-    
+
     submission_time = submission_time.astimezone(parsed_date.tzinfo)
-    
+
     print(parsed_date)
     print(submission_time)
     return parsed_date >= submission_time
+
 
 async def get_access_token(
     session: aiohttp.ClientSession,

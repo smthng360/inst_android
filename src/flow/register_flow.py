@@ -96,7 +96,6 @@ async def main():
 
     email_account = get_account_from_file()
 
-
     current_year = datetime.now().year
     birth_date = utils.generate_birth_date(current_year - 35, current_year - 19)
 
@@ -108,10 +107,9 @@ async def main():
         name=f"{random.choice(_FIRST_NAMES)}",
         username=email_account.email.split("@")[0],
         birth_date=birth_date,
-
     )
 
-    some:RegistrationFlow = RegistrationFlow(some)
+    some: RegistrationFlow = RegistrationFlow(some)
 
     response = await some.run()
     response_json = await response.json()

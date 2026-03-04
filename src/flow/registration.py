@@ -43,6 +43,7 @@ class RegistrationFlow(PhoneSetup):
         self._event_id: list[str] = []
         self._current_inputs: list[int] = []
 
+
     async def make_graphql_request(
         self,
         heads: HeaderMap,
@@ -126,6 +127,11 @@ class RegistrationFlow(PhoneSetup):
             ]
         ):
             self._aacjid = utils.get_aacjid(
+                response_json["layout"]["bloks_payload"]["data"][-1]["data"][
+                    "initial_lispy"
+                ]
+            )
+            self._aac_init_timestamp = utils.get_aac_init_timestamp(
                 response_json["layout"]["bloks_payload"]["data"][-1]["data"][
                     "initial_lispy"
                 ]
@@ -447,8 +453,7 @@ class RegistrationFlow(PhoneSetup):
             "client_input_params": {
                 "aac": json.dumps(
                     {
-                        "aac_init_timestamp": 
-                            self._aac_init_timestamp,
+                        "aac_init_timestamp": self._aac_init_timestamp,
                         "aacjid": self._aacjid,
                     }
                 ),
@@ -471,7 +476,7 @@ class RegistrationFlow(PhoneSetup):
                 "switch_cp_have_seen_suma": 0,
             },
             "server_params": {
-                "event_request_id": "d9b4df62-a454-477c-ae9c-f6208305c56b",
+                "event_request_id": self._event_id[-1],
                 "is_from_logged_out": 0,
                 "text_input_id": int(self._email_input_id),
                 "layered_homepage_experiment_group": "ld_no_language_selector",
@@ -683,9 +688,9 @@ class RegistrationFlow(PhoneSetup):
             variables, separators=(",", ":"), ensure_ascii=False
         )
 
-        s = format(self._qpl_instance_id, ".13E")
-        s = s.replace("E+", "E")
-        variables = variables.replace(str(self._qpl_instance_id), s)
+        variables = utils.remake_qpl_instace_id(
+            variables, self._qpl_instance_id
+        )
 
         variables = variables.replace(
             r"\\\\\\\\\\\\\\\\u0040", r"\\\\\\\\u0040"
@@ -744,7 +749,9 @@ class RegistrationFlow(PhoneSetup):
         if self._confirmation_code:
             return
 
-        submission_time = datetime.now(timezone.utc).replace(microsecond=0, second=0)  # round down to nearest minute
+        submission_time = datetime.now(timezone.utc).replace(
+            microsecond=0, second=0
+        )  # round down to nearest minute
         timeout_seconds = 120
         poll_interval = 5
         deadline = submission_time + timedelta(seconds=timeout_seconds)
@@ -781,7 +788,7 @@ class RegistrationFlow(PhoneSetup):
                 "safetynet_response": "API_ERROR: class com.google.android.gms.common.api.ApiException:7: ",  #### important note here
                 "caa_play_integrity_attestation_result": "",
                 "aac": '{"aac_init_timestamp":'
-                + utils.get_pigeon_raw_client_time().split(".")[0]
+                + str(self._aac_init_timestamp)
                 + ',"aacjid":"'
                 + self._aacjid
                 + '"}',
@@ -866,6 +873,10 @@ class RegistrationFlow(PhoneSetup):
             r"\\\\\\\\\\\\\\\\u0040", r"\\\\\\\\u0040"
         )
 
+        variables = utils.remake_qpl_instace_id(
+            variables, self._qpl_instance_id
+        )
+
         data = {
             "method": "post",
             "pretty": "false",
@@ -881,9 +892,6 @@ class RegistrationFlow(PhoneSetup):
             "variables": variables,
         }
 
-    
-
-
         response = await self.make_graphql_request(heads, data)
 
         response_json = await response.json()
@@ -893,7 +901,9 @@ class RegistrationFlow(PhoneSetup):
                 {"heads": heads, "data": data}, f, ensure_ascii=False, indent=4
             )
 
-        with open("password_creation_response.json", "w", encoding="utf-8") as f:
+        with open(
+            "password_creation_response.json", "w", encoding="utf-8"
+        ) as f:
             json.dump(response_json, f, ensure_ascii=False, indent=4)
 
         self._registration_context_token = utils.get_registration_context_token(
@@ -902,11 +912,11 @@ class RegistrationFlow(PhoneSetup):
         self._registration_dictionary = utils.get_registration_dictionary(
             response_json
         )
+        self._qpl_marker_id, self._qpl_instance_id = (
+            utils.get_qpl_after_password(str(response_json))
+        )
 
-        (self._qpl_instance_id,) = utils.get_qpl_instance_id(response_json)
-        self._qpl_marker_id = utils.get_qpl_marker_id(response_json)
-
-        self._event_id.append(utils.extract_event_id(response_json))
+        self._event_id.append(utils.extract_event_id(str(response_json)))
 
         return response
 
@@ -917,7 +927,7 @@ class RegistrationFlow(PhoneSetup):
             "client_input_params": {
                 "client_timezone": "Europe/Kiev",
                 "aac": '{"aac_init_timestamp":'
-                + utils.get_pigeon_raw_client_time().split(".")[0]
+                + str(self._aac_init_timestamp)
                 + ',"aacjid":"'
                 + self._aacjid
                 + '"}',
@@ -939,7 +949,7 @@ class RegistrationFlow(PhoneSetup):
                 # from password_creation_request
                 "reg_context": self._registration_context_token,
                 "waterfall_id": self._waterfall_id,
-                "INTERNAL__latency_qpl_instance_id": 131635346000265.0,  # from password_creation_request
+                "INTERNAL__latency_qpl_instance_id": self._qpl_instance_id,  # from password_creation_request
                 "flow_info": '{"flow_name":"new_to_family_ig_default","flow_type":"ntf"}',
                 "is_platform_login": 0,
                 "INTERNAL__latency_qpl_marker_id": self._qpl_marker_id,  # from password_creation_request
@@ -969,7 +979,7 @@ class RegistrationFlow(PhoneSetup):
                 "infra_params": {
                     "device_id": self._device_id,
                 },
-                "app_id": "com.bloks.www.bloks.caa.reg.aymh_create_account_button.async",
+                "app_id": "com.bloks.www.bloks.caa.reg.birthday.async",
             },
             "bk_context": {
                 "is_flipper_enabled": False,
@@ -983,6 +993,10 @@ class RegistrationFlow(PhoneSetup):
 
         variables = variables.replace(
             r"\\\\\\\\\\\\\\\\u0040", r"\\\\\\\\u0040"
+        )
+
+        variables = utils.remake_qpl_instace_id(
+            variables, self._qpl_instance_id
         )
 
         data = {
@@ -1019,21 +1033,22 @@ class RegistrationFlow(PhoneSetup):
             response_json
         )
 
-        (self._qpl_instance_id,) = utils.get_qpl_instance_id(response_json)
-        self._qpl_marker_id = utils.get_qpl_marker_id(response_json)
+        self._qpl_marker_id, self._qpl_instance_id = (
+            utils.get_qpl_after_birthdate(str(response_json))
+        )
 
-        self._event_id.append(utils.extract_event_id(response_json))
+        self._event_id.append(utils.extract_event_id(str(response_json)))
 
         return response
 
     async def name_adding(self) -> Response:
         heads = headers_import.get_name_headers(self)
 
-        data = {
+        variables = {
             "client_input_params": {
                 "accounts_list": [],
                 "aac": '{"aac_init_timestamp":'
-                + utils.get_pigeon_raw_client_time().split(".")[0]
+                + str(self._aac_init_timestamp)
                 + ',"aacjid":"'
                 + self._aacjid
                 + '"}',
@@ -1063,87 +1078,6 @@ class RegistrationFlow(PhoneSetup):
             },
         }
 
-        response = await self.make_graphql_request(heads, data)
-
-        response_json = await response.json()
-
-        with open("name_adding_response.json", "w", encoding="utf-8") as f:
-            json.dump(response_json, f, ensure_ascii=False, indent=4)
-
-        with open("name_adding_request.json", "w", encoding="utf-8") as f:
-            json.dump(
-                {"heads": heads, "data": data}, f, ensure_ascii=False, indent=4
-            )
-
-        self._registration_context_token = utils.get_registration_context_token(
-            response_json
-        )
-        self._registration_dictionary = utils.get_registration_dictionary(
-            response_json
-        )
-
-        self._qpl_instance_id = utils.get_qpl_instance_id(response_json)
-        self._qpl_marker_id = utils.get_qpl_marker_id(response_json)
-
-        self._event_id.append(utils.extract_event_id(response_json))
-
-        self._current_inputs = utils.find_reg_inputs(str(response_json))[4:]
-
-        return response
-
-    async def agreement_acceptance(self) -> Response:
-        heads = headers_import.get_agreement_headers(self)
-        variables = {
-            "client_input_params": {
-                "ck_error": "",
-                "aac": '{"aac_init_timestamp":'
-                + utils.get_pigeon_raw_client_time().split(".")[0]
-                + ',"aacjid":"'
-                + self._aacjid
-                + '"}',
-                "device_id": self._android_id,
-                "waterfall_id": self._waterfall_id,
-                "zero_balance_state": "",
-                "network_bssid": None,
-                "failed_birthday_year_count": "",
-                "headers_last_infra_flow_id": "",
-                "ig_partially_created_account_nonce_expiry": 0,
-                "machine_id": "aXFTbgABAAHw1cpzzsgkxOLUNm6H",
-                "should_ignore_existing_login": 0,
-                "reached_from_tos_screen": 1,
-                "ig_partially_created_account_nonce": "",
-                "ck_nonce": "",
-                "force_sessionless_nux_experience": 0,
-                "lois_settings": {"lois_token": ""},
-                "ig_partially_created_account_user_id": 0,
-                "ck_id": "",
-                "no_contact_perm_email_oauth_token": "",
-                "encrypted_msisdn": "",
-            },
-            "server_params": {
-                "event_request_id": self._event_id[-1],
-                "is_from_logged_out": 0,
-                "layered_homepage_experiment_group": "ld_no_language_selector",
-                "device_id": self._android_id,
-                "reg_context": self._registration_context_token,
-                "waterfall_id": self._waterfall_id,
-                "INTERNAL__latency_qpl_instance_id": self._qpl_instance_id,
-                "flow_info": '{"flow_name":"new_to_family_ig_default","flow_type":"ntf"}',
-                "is_platform_login": 0,
-                "should_ignore_suma_check": 0,
-                "INTERNAL__latency_qpl_marker_id": self._qpl_marker_id,
-                "bloks_controller_source": "bk_caa_reg_tos_screen",
-                "reg_info": self._registration_dictionary,
-                "family_device_id": self._family_device_id,
-                "offline_experiment_group": "caa_iteration_v3_perf_ig_4",
-                "access_flow_version": "pre_mt_behavior",
-                "app_id": 0,
-                "is_from_logged_in_switcher": 0,
-                "current_step": 9,
-                "qe_device_id": self._device_id,
-            },
-        }
-
         innermost_str = json.dumps(
             variables, separators=(",", ":"), ensure_ascii=False
         )
@@ -1160,7 +1094,7 @@ class RegistrationFlow(PhoneSetup):
                 "infra_params": {
                     "device_id": self._device_id,
                 },
-                "app_id": "com.bloks.www.bloks.caa.reg.aymh_create_account_button.async",
+                "app_id": "com.bloks.www.bloks.caa.reg.name_ig_and_soap.async",
             },
             "bk_context": {
                 "is_flipper_enabled": False,
@@ -1176,7 +1110,9 @@ class RegistrationFlow(PhoneSetup):
             r"\\\\\\\\\\\\\\\\u0040", r"\\\\\\\\u0040"
         )
 
-
+        variables = utils.remake_qpl_instace_id(
+            variables, self._qpl_instance_id
+        )
 
         data = {
             "method": "post",
@@ -1185,7 +1121,7 @@ class RegistrationFlow(PhoneSetup):
             "server_timestamps": "true",
             "locale": "user",
             "purpose": "fetch",
-            "fb_api_req_friendly_name": "IGBloksAppRootQuery-com.bloks.www.bloks.caa.reg.create.account.async",
+            "fb_api_req_friendly_name": "IGBloksAppRootQuery-com.bloks.www.bloks.caa.reg.name_ig_and_soap.async",
             "client_doc_id": "356548512614739681018024088968",
             "enable_canonical_naming": "true",
             "enable_canonical_variable_overrides": "true",
@@ -1197,24 +1133,41 @@ class RegistrationFlow(PhoneSetup):
 
         response_json = await response.json()
 
-
-        with open("agreement_acceptance_response.json", "w", encoding="utf-8") as f:
+        with open("name_adding_response.json", "w", encoding="utf-8") as f:
             json.dump(response_json, f, ensure_ascii=False, indent=4)
 
-        with open("agreement_acceptance_request.json", "w", encoding="utf-8") as f:
+        with open("name_adding_request.json", "w", encoding="utf-8") as f:
             json.dump(
                 {"heads": heads, "data": data}, f, ensure_ascii=False, indent=4
             )
 
-        return response
+        self._registration_context_token = utils.get_registration_context_token(
+            response_json
+        )
+        self._second_context_token = utils.get_registration_context_token(response_json, position=-2)
+        self._registration_dictionary = utils.get_registration_dictionary(
+            response_json
+        )
 
+        self._qpl_marker_id, self._qpl_instance_id = utils.get_qpl_after_name(
+            str(response_json)
+        )
+
+        self._event_id.append(utils.extract_event_id(str(response_json)))
+
+        self._current_inputs = utils.find_reg_inputs(str(response_json))[4:]
+
+        return response
+    
     async def username_first(self) -> Response:
         heads = headers_import.get_username_headers(self)
-        data = {
+
+
+        variables = {
             "client_input_params": {
                 "validation_text": self._username,
                 "aac": '{"aac_init_timestamp":'
-                + utils.get_pigeon_raw_client_time().split(".")[0]
+                + str(self._aac_init_timestamp)
                 + ',"aacjid":'
                 + self._aacjid
                 + "}",
@@ -1251,30 +1204,378 @@ class RegistrationFlow(PhoneSetup):
             },
         }
 
+        innermost_str = json.dumps(
+            variables, separators=(",", ":"), ensure_ascii=False
+        )
+
+        middle_dict = {"params": innermost_str}
+        middle_str = json.dumps(
+            middle_dict, separators=(",", ":"), ensure_ascii=False
+        )
+
+        variables = {
+            "params": {
+                "params": middle_str,
+                "bloks_versioning_id": self._blocks_version,
+                "infra_params": {
+                    "device_id": self._device_id,
+                },
+                "app_id": "com.bloks.www.bloks.caa.reg.username.async",
+            },
+            "bk_context": {
+                "is_flipper_enabled": False,
+                "theme_params": [],
+                "debug_tooling_metadata_token": None,
+            },
+        }
+        variables = json.dumps(
+            variables, separators=(",", ":"), ensure_ascii=False
+        )
+
+        variables = variables.replace(
+            r"\\\\\\\\\\\\\\\\u0040", r"\\\\\\\\u0040"
+        )
+
+        variables = utils.remake_qpl_instace_id(
+            variables, self._qpl_instance_id
+        )
+
+        data = {
+            "method": "post",
+            "pretty": "false",
+            "format": "json",
+            "server_timestamps": "true",
+            "locale": "user",
+            "purpose": "fetch",
+            "fb_api_req_friendly_name": "IGBloksAppRootQuery-com.bloks.www.bloks.caa.reg.username.async",
+            "client_doc_id": "356548512614739681018024088968",
+            "enable_canonical_naming": "true",
+            "enable_canonical_variable_overrides": "true",
+            "enable_canonical_naming_ambiguous_type_prefixing": "true",
+            "variables": variables,
+        }
+
         response = await self.make_graphql_request(heads, data)
 
+        response_json = await response.json()
 
+        with open("username_adding_response.json", "w", encoding="utf-8") as f:
+            json.dump(response_json, f, ensure_ascii=False, indent=4)
+
+        with open("username_adding_request.json", "w", encoding="utf-8") as f:
+            json.dump(
+                {"heads": heads, "data": data}, f, ensure_ascii=False, indent=4
+            )
+        
+
+        return response
+    
+    async def username_submit(self) -> Response:
+        heads = headers_import.get_username_headers(self)
+
+        self._registration_dictionary = json.loads(self._registration_dictionary)
+        del self._registration_dictionary['has_seen_confirmation_screen']
+        del self._registration_dictionary['flash_call_nonce_prefix_details']
+        del self._registration_dictionary['is_in_gms_experience']
+        del self._registration_dictionary['is_in_nta_single_form']
+        del self._registration_dictionary['fb_email_login_upsell_skip_suma_post_tos']
+
+        self._registration_dictionary = json.dumps(self._registration_dictionary, separators=(",", ":"), ensure_ascii=False)
+        
+        variables = {
+            "client_input_params": {
+                "validation_text": self._username,
+                "aac": '{"aac_init_timestamp":'
+                + str(self._aac_init_timestamp)
+                + ',"aacjid":'
+                + self._aacjid
+                + '"}'  ,
+                "family_device_id": self._family_device_id,
+                "device_id": self._android_id,
+                "lois_settings": {"lois_token": ""},
+                "network_bssid": "null",
+                "qe_device_id": self._device_id,
+            },
+            "server_params": {
+                "event_request_id": self._event_id[-1],
+                "is_from_logged_out": 0,
+                "text_input_id": int(self._current_inputs[3]),
+                "layered_homepage_experiment_group": "ld_no_language_selector",
+                "device_id": self._android_id,
+                "reg_context": self._second_context_token,
+                "waterfall_id": self._waterfall_id,
+                "INTERNAL__latency_qpl_instance_id": self._qpl_instance_id,
+                "flow_info": '{"flow_name":"new_to_family_ig_default","flow_type":"ntf"}',
+                "is_platform_login": 0,
+                "INTERNAL__latency_qpl_marker_id": self._qpl_marker_id,
+                "reg_info": self._registration_dictionary,
+                "family_device_id": self._family_device_id,
+                "offline_experiment_group": self._experiment_group,
+                "suggestions_container_id": int(self._current_inputs[2]),
+                "action": 1,
+                "screen_id": int(self._current_inputs[0]),
+                "access_flow_version": "pre_mt_behavior",
+                "post_tos": 0,
+                "input_id": int(self._current_inputs[0])-8,
+                "is_from_logged_in_switcher": 0,
+                "current_step": 8,
+                "qe_device_id": self._device_id,
+            },
+        }
+
+        innermost_str = json.dumps(
+            variables, separators=(",", ":"), ensure_ascii=False
+        )
+
+        middle_dict = {"params": innermost_str}
+        middle_str = json.dumps(
+            middle_dict, separators=(",", ":"), ensure_ascii=False
+        )
+
+        variables = {
+            "params": {
+                "params": middle_str,
+                "bloks_versioning_id": self._blocks_version,
+                "infra_params": {
+                    "device_id": self._device_id,
+                },
+                "app_id": "com.bloks.www.bloks.caa.reg.username.async",
+            },
+            "bk_context": {
+                "is_flipper_enabled": False,
+                "theme_params": [],
+                "debug_tooling_metadata_token": None,
+            },
+        }
+        variables = json.dumps(
+            variables, separators=(",", ":"), ensure_ascii=False
+        )
+
+
+        variables = utils.remake_qpl_instace_id(
+            variables, self._qpl_instance_id
+        )
+
+        data = {
+            "method": "post",
+            "pretty": "false",
+            "format": "json",
+            "server_timestamps": "true",
+            "locale": "user",
+            "purpose": "fetch",
+            "fb_api_req_friendly_name": "IGBloksAppRootQuery-com.bloks.www.bloks.caa.reg.username.async",
+            "client_doc_id": "356548512614739681018024088968",
+            "enable_canonical_naming": "true",
+            "enable_canonical_variable_overrides": "true",
+            "enable_canonical_naming_ambiguous_type_prefixing": "true",
+            "variables": variables,
+        }
+
+        response = await self.make_graphql_request(heads, data)
 
         response_json = await response.json()
+
+        with open("username_adding_response.json", "w", encoding="utf-8") as f:
+            json.dump(response_json, f, ensure_ascii=False, indent=4)
+
+        with open("username_adding_request.json", "w", encoding="utf-8") as f:
+            json.dump(
+                {"heads": heads, "data": data}, f, ensure_ascii=False, indent=4
+            )
+        
 
         self._registration_context_token = utils.get_registration_context_token(
             response_json
         )
+
         self._registration_dictionary = utils.get_registration_dictionary(
             response_json
         )
 
-        self._username = utils.find_availiable_usernames(
-            str(response_json), self._username[:4]
-        )[0]
-        self._registration_dictionary["username"] = self._username
+        self._qpl_marker_id, self._qpl_instance_id = utils.get_qpl_after_username_submit(
+            str(response_json)
+        )
+
 
         return response
 
+
+
+    async def agreement_acceptance(self) -> Response:
+        heads = headers_import.get_agreement_headers(self)
+
+        self._registration_dictionary = json.loads(self._registration_dictionary)
+
+        del self._registration_dictionary["sk_pipa_consent_given"]
+        self._registration_dictionary["is_wanted_suma_user"] = None
+        self._registration_dictionary['has_seen_confirmation_screen'] = False
+        self._registration_dictionary["ignore_suma_check"] = False
+        self._registration_dictionary["did_use_age"] = False
+
+        self._registration_dictionary = json.dumps(self._registration_dictionary, separators=(",", ":"), ensure_ascii=False)
+
+        variables = {
+            "client_input_params": {
+                "ck_error": "",
+                "aac": '{"aac_init_timestamp":'
+                + str(self._aac_init_timestamp)
+                + ',"aacjid":"'
+                + self._aacjid
+                + '"}',
+                "device_id": self._android_id,
+                "waterfall_id": self._waterfall_id,
+                "zero_balance_state": "",
+                "network_bssid": None,
+                "failed_birthday_year_count": "",
+                "headers_last_infra_flow_id": "",
+                "ig_partially_created_account_nonce_expiry": 0,
+                "machine_id": "aXFTbgABAAHw1cpzzsgkxOLUNm6H",
+                "should_ignore_existing_login": 0,
+                "reached_from_tos_screen": 1,
+                "ig_partially_created_account_nonce": "",
+                "ck_nonce": "",
+                "force_sessionless_nux_experience": 0,
+                "lois_settings": {"lois_token": ""},
+                "ig_partially_created_account_user_id": 0,
+                "cloud_trust_token": None,
+                "ck_id": "",
+                "no_contact_perm_email_oauth_token": "",
+                "encrypted_msisdn": "",
+            },
+            "server_params": {
+                "event_request_id": self._event_id[-1],
+                "is_from_logged_out": 0,
+                "layered_homepage_experiment_group": "ld_no_language_selector",
+                "device_id": self._android_id,
+                "reg_context": self._registration_context_token,
+                "login_surface": "unknown",
+                "waterfall_id": self._waterfall_id,
+                "INTERNAL__latency_qpl_instance_id": self._qpl_instance_id,
+                "flow_info": '{"flow_name":"new_to_family_ig_default","flow_type":"ntf"}',
+                "is_platform_login": 0,
+                "should_ignore_suma_check": 0,
+                "INTERNAL__latency_qpl_marker_id": self._qpl_marker_id,
+                "bloks_controller_source": "bk_caa_reg_tos_screen",
+                "reg_info": self._registration_dictionary,
+                "family_device_id": self._family_device_id,
+                "offline_experiment_group": "caa_iteration_v3_perf_ig_4",
+                "access_flow_version": "pre_mt_behavior",
+                "app_id": 0,
+                "is_from_logged_in_switcher": 0,
+                "current_step": 9,
+                "qe_device_id": self._device_id,
+            },
+        }
+
+        innermost_str = json.dumps(
+            variables, separators=(",", ":"), ensure_ascii=False
+        )
+
+        middle_dict = {"params": innermost_str}
+        middle_str = json.dumps(
+            middle_dict, separators=(",", ":"), ensure_ascii=False
+        )
+
+        variables = {
+            "params": {
+                "params": middle_str,
+                "bloks_versioning_id": self._blocks_version,
+                "infra_params": {
+                    "device_id": self._device_id,
+                },
+                "app_id": "com.bloks.www.bloks.caa.reg.create.account.async",
+            },
+            "bk_context": {
+                "is_flipper_enabled": False,
+                "theme_params": [],
+                "debug_tooling_metadata_token": None,
+            },
+        }
+        variables = json.dumps(
+            variables, separators=(",", ":"), ensure_ascii=False
+        )
+
+        variables = variables.replace(
+            r"\\\\\\\\\\\\\\\\u0040", r"\\\\\\\\u0040"
+        )
+
+        variables = variables.replace(r"\\\\\\\\\\\\\\\\\\\\\\\\u0040", r"\\\\\\\\u0040")
+        import re
+
+        variables = re.sub(r'\\{15,}/', r'\\\\\\\\/', variables)
+
+        variables = utils.remake_qpl_instace_id(
+            variables, self._qpl_instance_id
+        )
+
+        data = {
+            "method": "post",
+            "pretty": "false",
+            "format": "json",
+            "server_timestamps": "true",
+            "locale": "user",
+            "purpose": "fetch",
+            "fb_api_req_friendly_name": "IGBloksAppRootQuery-com.bloks.www.bloks.caa.reg.create.account.async",
+            "client_doc_id": "356548512614739681018024088968",
+            "enable_canonical_naming": "true",
+            "enable_canonical_variable_overrides": "true",
+            "enable_canonical_naming_ambiguous_type_prefixing": "true",
+            "variables": variables,
+        }
+
+        heads_map = OrigHeaderMap([
+        "Host",
+        "Accept-Language",
+        'Content-Length',
+        "Content-Type",
+        "Priority",
+        "User-Agent",
+        "X-Bloks-Version-Id",
+        "X-Client-Doc-Id",
+        "X-Fb-Client-Ip",
+        "X-Fb-Friendly-Name",
+        "X-Fb-Request-Analytics-Tags",
+        "X-Fb-Server-Cluster",
+        "X-Ig-Android-Id",
+        "X-Ig-App-Id",
+        "X-Ig-Attest-Params",
+        "X-Ig-Capabilities",
+        "X-Ig-Device-Id",
+        "X-Ig-Is-Foldable",
+        "X-Ig-Timezone-Offset",
+        "X-Ig-Validate-Null-In-Legacy-Dict",
+        "X-Root-Field-Name",
+        "X-Tigon-Is-Retry",
+        'Accept-Encoding',
+        "X-Fb-Conn-Uuid-Client",
+        "X-Fb-Http-Engine",
+        "X-Graphql-Client-Library",
+        "X-Graphql-Request-Purpose",])
+
+
+        response = await self.make_graphql_request(heads=heads, data=data, orig_heads=heads_map)
+
+        response_json = await response.json()
+
+        with open(
+            "agreement_acceptance_response.json", "w", encoding="utf-8"
+        ) as f:
+            json.dump(response_json, f, ensure_ascii=False, indent=4)
+
+        with open(
+            "agreement_acceptance_request.json", "w", encoding="utf-8"
+        ) as f:
+            json.dump(
+                {"heads": heads, "data": data}, f, ensure_ascii=False, indent=4
+            )
+
+        return response
+
+
     async def _step(self, name, coro):
-        print(name)
         try:
             resp = await coro
+            await asyncio.sleep(4)  # small delay to avoid hitting rate limits
             print(f"{name} -> OK:", getattr(resp, "status", resp))
             return resp
         except Exception as e:
@@ -1337,6 +1638,18 @@ class RegistrationFlow(PhoneSetup):
 
         username_resp = await self._step(
             "Choosing username", self.username_first()
+        )
+
+        username_resp = await self._step(
+            "Choosing username", self.username_submit()
+        )
+
+        andr_keystore = await self._step(
+            "Android keystore", self.create_keystore()
+        )
+
+        andr_keystore = await self._step(
+            "Android keystore", self.create_android_playintegrity()
         )
 
         agreement_resp = await self._step(

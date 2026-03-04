@@ -1,1 +1,1 @@
-expected string or bytes-like object, got 'dict'
+unsupported format string passed to NoneType.__format__

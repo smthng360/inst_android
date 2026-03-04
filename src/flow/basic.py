@@ -26,7 +26,7 @@ class PhoneSetup:
         self._blocks_version: str = BLOKS_VERSION_ID
         self._user_agent: str = utils.get_user_agent()
 
-        self._conn_uuid_client: str = None
+        self._conn_uuid_client: str = utils.generate_conn_uuid()
 
         self._aacjid: str = None
         self._aac_init_timestamp: int = None
@@ -168,7 +168,11 @@ class PhoneSetup:
             ]
         ):
             print("AACJID found in response, extracting...")
-            print(response_json["layout"]["bloks_payload"]["data"][-1]["data"]["initial_lispy"])
+            print(
+                response_json["layout"]["bloks_payload"]["data"][-1]["data"][
+                    "initial_lispy"
+                ]
+            )
             self._aacjid = utils.get_aacjid(
                 response_json["layout"]["bloks_payload"]["data"][-1]["data"][
                     "initial_lispy"
@@ -228,9 +232,11 @@ class PhoneSetup:
         self._encryption_pub_key = response.headers.get(
             "Ig-Set-Password-Encryption-Pub-Key", None
         ).decode("utf-8")
-        self._encryption_key_id = int(response.headers.get(
-            "Ig-Set-Password-Encryption-Key-Id", None
-        ).decode("utf-8"))
+        self._encryption_key_id = int(
+            response.headers.get(
+                "Ig-Set-Password-Encryption-Key-Id", None
+            ).decode("utf-8")
+        )
 
         return response
 
@@ -301,8 +307,34 @@ class PhoneSetup:
 
         self._challenge_nonce = response_json["challenge_nonce"]
         self._key_nonce = response_json["key_nonce"]
-        print(response.headers.get("Ig-Set-X-Mid"))
         mid = response.headers.get("Ig-Set-X-Mid")
         self._mid = str(mid)
 
         return response
+    
+    async def  create_android_playintegrity(self):
+        heads = headers_import.get_create_keystore_headers(
+            device_id=self._device_id,
+            user_agent=self._user_agent,
+            app_id=self._app_id,
+            blocks_version=self._blocks_version,
+            android_id=self._android_id,
+            pigeon_raw_client_time=utils.get_pigeon_raw_client_time(),
+            pigeon_session_id=self._pigeon_session_id,
+        )
+        data = {
+            "app_scoped_device_id": self._device_id,
+        }
+
+        response = await self._client.post(
+            url="https://b.i.instagram.com/api/v1/attestation/create_android_playintegrity/",
+            headers=heads,
+            form=data,
+        )
+
+        response_json = await response.json()
+
+        self._challenge_nonce_2 = response_json["challenge_nonce"]
+
+        return response
+
